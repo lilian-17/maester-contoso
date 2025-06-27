@@ -227,7 +227,7 @@ Remove-ServicePrincipal "Maester App" #Ou autre nom donner au service
 ## Comment synchroniser GitHub
 
 Si vous faites des changements sur le repo principal et que vous voulez aller le synchroniser sur les autres repo faites ceci :
-- Aller sur le repo que vous voulez synchroniser 
+- Aller sur le repo que vous voulez synchroniser > Sync Fork > Update
 
 ## Erreurs Possible : 
 
