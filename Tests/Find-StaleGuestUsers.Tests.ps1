@@ -19,13 +19,13 @@ Describe "Find-StaleGuestUsers" -Tag "Custom", "Users" {
             Write-Host "DEBUG: Nombre d'invités stale = $($guests.Count)"
 
             if ($guests.Count -eq 0) {
-                $result = "✅ No stale guest users found. All guests accepted or are within the allowed timeframe."
+                $result = "No stale guest users found. All guests accepted or are within the allowed timeframe."
                 Add-MtTestResultDetail -Description $testDescription -Result $result
 
                 # Le test passe ici
                 $true | Should -Be $true
             } else {
-                $result = "❌ Found $($guests.Count) guest(s) pending for more than $expirationDays days."
+                $result = "Found $($guests.Count) guest(s) pending for more than $expirationDays days."
                 Add-MtTestResultDetail -Description $testDescription -Result $result
 
                 # Afficher la liste des utilisateurs concernés
@@ -72,7 +72,7 @@ Describe "Find-StaleGuestUsers" -Tag "Custom", "Users" {
             $result | Should -HaveCount 1
             $result[0].UserPrincipalName | Should -Be "usera@example.com" -Because "Because User A is the only one who hasn't accepted the invitation and is older than the expiration threshold"
         } catch {
-            $msg = "❌ Error: $($_.Exception.Message)"
+            $msg = "Error: $($_.Exception.Message)"
             Add-MtTestResultDetail -Description "Error while checking guest invitations" -Result $msg
             Throw $_
         }
